@@ -45,7 +45,7 @@ function Accueille() {
     const getPost = async () => {
         try {
             setSpin(true)
-            const response = await fetch(`http://localhost:3000/user/post`)
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/user/post`)
             const data = await response.json()
 
             if (response.status === 200) {
@@ -162,7 +162,7 @@ function Accueille() {
                             <Galerie
                                 key={blk.postID}
                                 nameUser={blk.pseudo}
-                                backgroundImage={`http://localhost:3000/uploads/${blk.image}`}
+                                backgroundImage={`${import.meta.env.VITE_API_URL}/uploads/${blk.image}`}
                                 chemin={blk.image}
                                 like={blk.react}
                                 countLike={blk.reactCount}

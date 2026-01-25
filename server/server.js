@@ -14,7 +14,7 @@ const __dirname = path.dirname(__filename)
 app.use(cors())               // Autorise toutes les requêtes cross-origin
 app.use(express.json())       // Parse automatiquement le JSON dans req.body
 app.use("/uploads",express.static(path.join(__dirname,"uploads")))
-const port = 3000             // Port d'écoute du serveur
+const PORT = process.env.PORT || 3000            // Port d'écoute du serveur
 
 app.use("/user", userRoutes);
 
@@ -32,6 +32,6 @@ app.use("/user", userRoutes);
 app.use(express.static(path.join(__dirname,"../client/dist")))
 
 // ======================= Lancer le serveur ==============================
-app.listen(port,()=>{
+app.listen(PORT,()=>{
     console.log("http://localhost:3000")
 })

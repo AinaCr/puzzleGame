@@ -24,7 +24,7 @@ function App() {
     // Récupère l’ID utilisateur depuis le backend par pseudo
     const getId = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/getId?name=${userName}`)
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/getId?name=${userName}`)
             const data = await response.json()
 
             if (response.status === 200) {
@@ -52,7 +52,7 @@ function App() {
             if (regexName.test(userName)) {           // Vérifie le pseudo
                 if (regexMail.test(mail)) {          // Vérifie email
                     try {
-                        const response = await fetch("http://localhost:3000/user", {
+                        const response = await fetch(`${import.meta.env.VITE_API_URL}/user`, {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify({ name: userName, email: mail })
@@ -96,7 +96,7 @@ function App() {
             // ----------------- CONNEXION -----------------
             if (regexMail.test(mail)) { // Vérifie email
                 try {
-                    const response = await fetch(`http://localhost:3000/user/search?email=${mail}`)
+                    const response = await fetch(`${import.meta.env.VITE_API_URL}/user/search?email=${mail}`)
                     const data = await response.json()
 
                     if (response.status === 200) {

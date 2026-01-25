@@ -51,7 +51,7 @@ function Galerie({ backgroundImage,nameUser, chemin, countLike, like, idPost, id
 
     const removePub=async()=>{
         try{
-            const response = await fetch("http://localhost:3000/user/removePub",{
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/user/removePub`,{
                 method:"DELETE",
                 headers:{
                     "Content-Type":"application/json"
@@ -76,7 +76,7 @@ function Galerie({ backgroundImage,nameUser, chemin, countLike, like, idPost, id
     // Création d'une réaction (like) dans la base si l'utilisateur n'a jamais liké ce post
     const sendReact = async () => {
         try {
-            const response = await fetch("http://localhost:3000/user/createReact", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/user/createReact`, {
                 method: "POST",
                 headers: { "Content-type": "application/json" },
                 body: JSON.stringify({
@@ -98,7 +98,7 @@ function Galerie({ backgroundImage,nameUser, chemin, countLike, like, idPost, id
     // Récupère si l'utilisateur a déjà liké ce post
     const getLike = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/user/getLike?post=${idPost}&users=${userId}`)
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/user/getLike?post=${idPost}&users=${userId}`)
             const data = await response.json()
             if (response.ok) {
                 console.log("données récupérées pour la reaction")
@@ -117,7 +117,7 @@ function Galerie({ backgroundImage,nameUser, chemin, countLike, like, idPost, id
     // Récupère le nombre de likes du post
     const getReactCount = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/user/getReactCount?post=${idPost}`)
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/user/getReactCount?post=${idPost}`)
             const data = await response.json()
             if (response.ok) {
                 console.log("données récupérées du nombre de likes")
@@ -132,7 +132,7 @@ function Galerie({ backgroundImage,nameUser, chemin, countLike, like, idPost, id
     // Ajoute un like au post
     const addReact = async () => {
         try {
-            const response = await fetch("http://localhost:3000/user/addReact", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/user/addReact`, {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -151,7 +151,7 @@ function Galerie({ backgroundImage,nameUser, chemin, countLike, like, idPost, id
     // Retire un like au post
     const reduceReact = async () => {
         try {
-            const response = await fetch("http://localhost:3000/user/reduceReact", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/user/reduceReact`, {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -214,7 +214,7 @@ function Galerie({ backgroundImage,nameUser, chemin, countLike, like, idPost, id
                         className={css.play}
                         onClick={() => {
                             console.log('chemin ===', chemin)
-                            setImagePuzzle(`http://localhost:3000/uploads/${chemin}`)
+                            setImagePuzzle(`${import.meta.env.VITE_API_URL}/uploads/${chemin}`)
                             puzzlePage()
                         }}
                     ></button>

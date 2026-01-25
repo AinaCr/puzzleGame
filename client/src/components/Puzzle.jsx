@@ -671,7 +671,7 @@ const changeFile = (e) => {
 */
 const sendReact = async () => {
   try {
-    const response = await fetch("http://localhost:3000/user/sendReact", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/user/sendReact`, {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ idUser: userId })
@@ -697,14 +697,14 @@ const uploadImage = async () => {
   formData.append("meta", JSON.stringify({ id: userId }));  // Metadata avec id utilisateur
 
   try {
-    const response = await fetch("http://localhost:3000/user/uploads", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/user/uploads`, {
       method: "POST",
       body: formData
     });
 
     if (response.ok) {
       const data = await response.json();
-      const imgUrl = `http://localhost:3000/uploads/${data.nameFile}`;
+      const imgUrl = `${import.meta.env.VITE_API_URL}/uploads/${data.nameFile}`;
 
       setImage(imgUrl);        // Change l'image du puzzle
       setImagePuzzle(imgUrl);  // Met à jour l'image dans le contexte
@@ -722,7 +722,7 @@ const uploadImage = async () => {
 */
 const sendClashData = async () => {
   try {
-    const response = await fetch("http://localhost:3000/user/clash", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/user/clash`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -752,7 +752,7 @@ const sendClashData = async () => {
 const changeUserName = async () => {
   if (regexName.test(user)) {  // Vérifie que le pseudo commence par une lettre
     try {
-      const response = await fetch("http://localhost:3000/user/changeNameUsers", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/user/changeNameUsers`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

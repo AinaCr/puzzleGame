@@ -39,7 +39,7 @@ function Clash() {
     // Récupération classement Hard
     async function getHard() {
         try{
-            const response = await fetch("http://localhost:3000/user/hardClash")
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/user/hardClash`)
         const data = await response.json()
         setSpin(true)
 
@@ -60,7 +60,7 @@ function Clash() {
     async function getNormal() {
         try{
             setSpin(true)
-            const response = await fetch("http://localhost:3000/user/normalClash")
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/user/normalClash`)
             const data = await response.json()
 
             if (response.ok) {
