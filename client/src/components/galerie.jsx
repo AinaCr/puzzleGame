@@ -184,7 +184,7 @@ function Galerie({ backgroundImage,nameUser, chemin, countLike, like, idPost, id
 
     // ======================= RENDER =======================
     return (<>
-        {ask && <Ask sentence={"Tu vas vraiment le faire?"} onDelete={()=>{removePub()}} onClose={()=>{setAsk(false)}}/>}
+        {ask && <Ask sentence={"you're really going to do it"} btnSent={"DELETE"} onDelete={()=>{removePub()}} onClose={()=>{setAsk(false)}}/>}
         <div className={css.bodyPub} >
             {/* Image du post */}
             <div className={css.imgPub} style={{ backgroundImage: `url(${backgroundImage})` }}>

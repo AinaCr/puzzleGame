@@ -4,6 +4,7 @@ import css from "../styles/myStyle.module.css"; // Styles du puzzle
 import imgFile from "../assets/image2.jpg"; // Image par défaut
 import { color, time } from "framer-motion"; // Pour les animations si besoin
 import { AuthContext } from "../variables/variableExport"; // Contexte global pour user et puzzle
+import Ask from "./ask";
 
 function Puzzle() {
   //=====================================================================
@@ -60,6 +61,7 @@ function Puzzle() {
   const [changeImage, setImage] = useState(imagePuzzle); // Image affichée dans le puzzle
   const [screenWidth,setWidth]=useState(window.innerWidth);
   const [sceenHeight,setHeight]=useState(window.innerHeight);
+  const [win,setWin]=useState(false)
   
 
   //=====================================================================
@@ -914,9 +916,14 @@ useEffect(() => {
 useEffect(() => {
   if (endRow.length > 0 && endColumn.length > 0) {
     const end = verification();  // Vérifie si toutes les pièces sont à leur place
-    if (end) {
+    if (end && !view) {
       console.log("Puzzle terminé !");
       sendClashData();           // Envoie le score et la difficulté
+      setWin(true)
+      setInterval(() => {
+        setWin(false)
+      }, 20000);
+      
     }
   }
 }, [column, row, endColumn, endRow]);
@@ -1238,6 +1245,8 @@ const imgStyle = {
 
 return(
   <>
+    
+        {win && <Ask sentence={"You Win"} btnSent={"OK"} onDelete={()=>{setWin(false)}} onClose={()=>{setWin(false)}}/>}
     <div className={css.boxPuzzle}>
 
       {/* Bloc affichant le pseudo de l'utilisateur et bouton d'édition */}
@@ -1301,6 +1310,7 @@ return(
                       <div className={css.btnOption}>
                         <input
                           type="file"
+                          accept="image/png, image/jpeg, image/webp"
                           style={{display:"none"}}
                           ref={inputRef}
                           onChange={changeFile}
