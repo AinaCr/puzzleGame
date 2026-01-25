@@ -1,3 +1,34 @@
+
+
+
+# 🧩 Puzzle Game - Fullstack Application
+
+Welcome! This is a fully customized **Taquin (Sliding Puzzle)** web application. More than just a game, this project showcases a complete community-driven experience.
+
+## ✨ Key Features
+- **🎮 Interactive Gameplay:** Custom-built sliding puzzle logic with a real-time game timer.
+- **🖼️ Community Gallery:** Users can view photos used by other players, creating a shared visual experience.
+- **🏆 Global Leaderboard:** A competitive ranking system showcasing players with the fastest completion times.
+
+## 🛠️ Tech Stack
+- **Frontend:** React.js (Hooks, Context API)
+- **Backend:** Node.js & Express
+- **Database:** MySQL (Storing scores, user metadata, and image references)
+- **Storage:** Server-side image upload management.
+
+## 🚀 Quick Start
+1. **Clone the repo**: `git clone https://github.com/AinaCr/puzzleGame.git`
+2. **Server Setup**: `cd server && npm install` (Configure your `.env` file)
+3. **Client Setup**: `cd client && npm install`
+4. **Run the App**: `npm run dev` (client) and `node server.js` (server)
+
+
+
+
+
+
+
+
 # 🧩 Puzzle Game - Fullstack Taquin
 
 Bienvenue dans mon projet de **Jeu de Taquin (Sliding Puzzle)** entièrement personnalisé. C'est une application Fullstack développée avec la stack **React, Node.js et MySQL**.
