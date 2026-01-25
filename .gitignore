@@ -1,0 +1,17 @@
+# Dépendances
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Environnement
+.env
+.env.local
+
+server/uploads/
+
+# Build
+build/
+dist/
+
+# Divers
+.DS_Store

@@ -1,0 +1,653 @@
+.blockEasy{
+    
+    height: 98px;
+    width: 98px;
+    background-position:0 0;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius:4px;
+
+}
+
+.blockNormal{
+    
+    height: 73px;
+    width: 73px;
+    background-position:0 0;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius:4px;
+
+}
+
+.blockHard{
+    
+    height: 58px;
+    width: 58px;
+    background-position:0 0;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius:4px;
+
+}
+
+.body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(../assets/logo1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.layoutEasy{
+    height: 306px;
+    width: 306px;
+    display: grid;
+    box-sizing: border-box;
+    place-items: center;
+    position: relative;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr ;
+    justify-items: center;
+    align-items: center;
+    background-color:transparent;
+    border: 6px solid rgb(78, 36, 1);
+}
+
+
+.layoutNormal{
+    height: 300px;
+    width: 300px;
+    border: 2px solid rgb(104, 32, 3);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr ;
+    justify-items: center;
+    align-items: center;
+    background-color: rgb(78, 36, 1);
+    border: 6px solid rgb(78, 36, 1);
+}
+
+.layoutHard{
+    height: 300px;
+    width: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
+    justify-items: center;
+    align-items: center;
+    background-color: rgb(78, 36, 1);
+    border: 6px solid rgb(78, 36, 1);
+}
+
+.form{
+    background-color: rgb(78, 36, 1);
+    height: 40px;
+    width: 75%;
+    border-radius: 15px;
+    color:rgb(240, 237, 233);
+    font-size: 1.2rem;
+    font-weight: bolder;
+    border:0px;
+    padding-left: 15px;
+    margin-bottom: 40px;
+
+}
+.form:focus{
+    outline: none;
+}
+.btnConnect{
+    background-color: #167703;
+    height: 40px;
+    width: 160px;
+    border-radius: 15px;
+     
+    font-size: 1.2rem;
+    border:none;
+    font-weight: bolder;
+    text-decoration: none;
+
+
+}
+.btnConnect:hover{
+    opacity: 0.8;
+    cursor: pointer;
+    color:rgb(22, 21, 21);
+
+}
+
+.logo{
+    height: 100px;
+    width: 100px;
+    background-image: url(../assets/logo1.jpg);
+    position: relative;
+    top: -50px;
+    border-radius: 50%;
+
+    
+}
+.link{
+    text-decoration: none;
+    color:rgb(240, 237, 233);
+}
+.accueille{
+     background-color: #f8f9fa;
+     height: 100vh;
+     width: 100vw;
+     min-height: 300px;
+    min-height: 200px;
+    min-width: 250px;
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+
+}
+
+.menu{
+    background-color: rgb(78, 36, 1);
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.btnMenu{
+    height: 50px;
+    width: 50px;
+    border-radius: 7px;
+    border: 1px solid transparent;
+}
+.boxBtn{
+    height: 100%;
+    width: 50%;
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+.btnGalerie{
+    background-image: url(../assets/icons8-image-60.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(78, 36, 1);
+
+}
+.btnPuzzle{
+        background-image: url(../assets/icons8-puzzle-60.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(78, 36, 1);
+}
+.btnClash{
+    background-image: url(../assets/icons8-classement-60.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(78, 36, 1);
+
+}
+.container{
+    height: 30%;
+    width: 20%;
+    min-height: 200px;
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:transparent;
+    flex-direction: column;
+    border-radius: 20px;
+
+    backdrop-filter:blur(2px)
+
+}
+
+.containerPuzzle{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:rgb(240, 237, 233);
+    flex-direction: column;
+    position: relative;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.control{
+    width: 300px;
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+.option{
+    height: 10%;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    margin-bottom: 10px;;
+
+}
+.btnOption{
+    background-color: rgb(78, 36, 1);
+    border-radius: 7px;
+    width: 90%;
+    height: 100%;
+    border:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.viewOption{
+    background-image: url(../assets/icons8-vision-24.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 7px;
+    width: 34px;
+    height: 34px;
+    border:0;
+    
+}
+.btnEasy{
+   background-image: url(../assets/icons8-etoile-10.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 7px;
+    width: 15px;
+    height: 15px;
+    border:0; 
+}
+
+.viewOptionClose{
+    background-image: url(../assets/icons8-invisibile-24.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 7px;
+    width: 34px;
+    height: 34px;
+    border:0;
+    
+}
+.btnDifi{
+    background-image: url(../assets/icons8-elenco-delle-caratteristiche-24.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 7px;
+    width: 34px;
+    height: 34px;
+    border:0;
+}
+.btnChange{
+     background-image: url(../assets/icons8-cambio-24\ \(2\).png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 7px;
+    width: 34px;
+    height: 34px;
+    border:0;
+    
+}
+.boxDirection{
+    height: 60%;
+    width: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    flex-wrap: 10px;
+    margin-top: 20px;
+
+    justify-items: center;
+}
+.btnUp{
+    background-image: url(../assets/icons8-su-48.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 2px solid rgb(78, 36, 1);
+    background-color: rgb(78, 36, 1);
+    grid-column: 2;
+    grid-row: 1;
+    box-shadow:0px 8px 0px rgb(22, 21, 21);
+    position: relative; 
+}
+
+.btnLeft{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 2px solid rgb(78, 36, 1);
+    background-color: rgb(78, 36, 1);
+    grid-column: 1;
+    grid-row: 2;
+    box-shadow:0px 8px 0px rgb(22, 21, 21);
+    position: relative;
+    color: rgb(240, 237, 233);
+    font-size: 1em;
+    background-image: url(../assets/icons8-sinistra-48.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+.btnDown{
+    background-image: url(../assets/icons8-giù-48.png);
+    height: 60px;
+    width: 60px;
+     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    background-color: rgb(78, 36, 1);
+    border: 2px solid rgb(78, 36, 1);
+    grid-column: 2;
+    grid-row: 3;
+    box-shadow:0px 8px 0px rgb(22, 21, 21);
+    position: relative;
+}
+.btnRight{
+    background-image: url(../assets/icons8-destra-48.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: rgb(78, 36, 1);
+    border: 2px solid rgb(78, 36, 1);
+    grid-column: 3;
+    grid-row: 2;
+    box-shadow:0px 8px 0px rgb(22, 21, 21);
+    position: relative;
+
+}
+.btnRight:active{
+    box-shadow:0px 4px 0px rgb(22, 21, 21);
+    top:4px;
+    background-color:rgb(204,119,34)
+
+}
+.click{
+    box-shadow:0px 4px 0px rgb(22, 21, 21);
+    top:4px;
+}
+.off{
+     box-shadow:0px 8px 0px rgb(22, 21, 21);
+    top:0
+}
+
+.btnUp:active{
+    box-shadow:0px 4px 0px rgb(22, 21, 21);
+    top:4px;
+    background-color:rgb(204,119,34)
+
+}
+
+
+.btnDown:active{
+    box-shadow:0px 4px 0px rgb(22, 21, 21);
+    top:4px;
+    background-color:rgb(204,119,34)
+
+}
+
+.btnLeft:active{
+    box-shadow:0px 4px 0px rgb(22, 21, 21);
+    top:4px;
+    background-color:rgb(204,119,34)
+
+}
+
+.boxPuzzle{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(240, 237, 233);
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+.blockView{
+    height: 300px;
+    width: 300px;
+    background-size: 300px 300px;
+    border: 6px solid rgb(78, 36, 1);
+}
+.chronoBlock{
+    height: 120px;
+    width: 300px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    position: relative;
+    margin-top: 20px;
+}
+.chronoBlock2{
+    height: 50px;
+    width: 300px;
+    background-color: rgb(78, 36, 1);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    position: relative;
+    grid-row: 2;
+    
+}
+.chronoBlock1{
+    height: 50px;
+    width: 300px;
+ 
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    position: relative;
+    grid-row: 1;
+    
+}
+.chronoImage{
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    background-image: url(../assets/icons8-stopwatch-100.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #167703;
+    
+}
+.btnStart{
+    background-color: rgb(78, 36, 1);
+    width: 100px;
+    background-color: rgb(204, 119, 34);
+    border-radius: 10px;
+    border: 0;
+    font-size: 1.1rem;
+    font-weight: bolder;
+    text-align: center;
+}
+.btnStart:hover{
+    opacity: 0.8;
+    cursor: pointer;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chronoNumber{
+    font-size: 1.3rem;
+    color: rgb(240, 237, 233);
+    position: relative;
+    top: 10px;
+}
+.userName{
+    background-color: rgb(78, 36, 1);
+    color: rgb(240, 237, 233);   
+    font-size: 1.3rem;
+    height: 40px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    border-bottom-left-radius: 18px;
+    border-top-left-radius: 18px;
+    outline: none;
+    border:0;
+    margin-bottom: 0;
+    margin-top: 0;
+    
+}
+.blockName{
+    margin-top: 15px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.btnEdit{
+    height: 40px;
+    width: 40px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    border: 0px;
+
+    background-image: url(../assets/icons8-creare-nuovo-32.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.nameValide{
+    background-color: rgb(78, 36, 1);
+    height: 40px;
+    width: 40px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    border: 0;
+    color: rgb(240, 237, 233);   
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.userInput{
+    background-color: rgb(78, 36, 1);
+    color: rgb(240, 237, 233);   
+    font-size: 1.3rem;
+    height: 38px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    border-bottom-left-radius: 18px;
+    border-top-left-radius: 18px;
+    outline: none;
+    border:0
+}
+
+.sentence{
+    font-weight: 800;
+    text-decoration: underline;
+}
+.sentence:hover{
+    cursor: pointer;
+    color: rgb(204, 119, 34);
+}
+
+.answerLogin{
+    height: 30px;
+    margin-top: 0;
+    padding: 0;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+
+}
+.blockBtn{
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width:1024px) {
+    .boxPuzzle{
+        height: 100%;
+        width: 75%;
+        display: grid;
+        grid-template-rows: 1fr 1fr 20fr;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+    }
+    .answerLogin{
+        grid-column: span 2;
+        grid-row: 2;
+    }
+    .blockName{
+        grid-row: 1;
+        grid-column: span 2;
+    }
+    .layoutEasy{
+        grid-row: 3;
+        grid-column: 1;
+    }
+    .blockBtn{
+        grid-column: 2;
+        grid-row: 3;
+    }
+    .layoutEasy{
+        height: 460px;
+        width: 460px;
+    }
+    .blockEasy{
+        height: 150px;
+        width: 150px;
+        background-repeat: no-repeat;
+  
+    }
+    .layoutNormal{
+        height: 460px;
+        width: 460px;
+        grid-row: 3;
+        grid-column: 1;
+    }
+    .blockNormal{
+        height: 112px;
+        width: 112px;
+    }
+    .blockHard{
+        height: 90px;
+        width: 90px;
+    }
+    .layoutHard{
+        height: 460px;
+        width: 460px;
+        grid-row: 3;
+        grid-column: 1;
+    }
+}
