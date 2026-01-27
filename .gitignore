@@ -9,6 +9,8 @@ server/node_modules/
 
 server/uploads/
 
+server/ca.pem
+
 # Build
 build/
 dist/
