@@ -2,7 +2,8 @@
 
 
 # 🧩 Puzzle Game - Fullstack Application
-<img width="200" height="150" alt="Capture d’écran du 2026-01-27 18-12-25" src="https://github.com/user-attachments/assets/89f5f932-c119-4d2e-b3a4-2e4790976774" /><img width="200" height="150" alt="Capture d’écran du 2026-01-27 18-17-01" src="https://github.com/user-attachments/assets/0425671c-cd5e-41af-b2e1-ba271c456ddb" />
+<img width="400" height="300" alt="Capture d’écran du 2026-01-27 18-12-25" src="https://github.com/user-attachments/assets/89f5f932-c119-4d2e-b3a4-2e4790976774" />
+<img width="500" height="3500" alt="Capture d’écran du 2026-01-27 18-17-01" src="https://github.com/user-attachments/assets/0425671c-cd5e-41af-b2e1-ba271c456ddb" />
 
 
 
