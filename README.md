@@ -2,8 +2,8 @@
 
 
 # 🧩 Puzzle Game - Fullstack Application
-<img width="775" height="645" alt="Capture d’écran du 2026-01-27 18-12-25" src="https://github.com/user-attachments/assets/89f5f932-c119-4d2e-b3a4-2e4790976774" />
-<img width="1543" height="822" alt="Capture d’écran du 2026-01-27 18-17-01" src="https://github.com/user-attachments/assets/0425671c-cd5e-41af-b2e1-ba271c456ddb" />
+<img width="200" height="150" alt="Capture d’écran du 2026-01-27 18-12-25" src="https://github.com/user-attachments/assets/89f5f932-c119-4d2e-b3a4-2e4790976774" /><img width="200" height="150" alt="Capture d’écran du 2026-01-27 18-17-01" src="https://github.com/user-attachments/assets/0425671c-cd5e-41af-b2e1-ba271c456ddb" />
+
 
 
 Welcome! This is a fully customized **Taquin (Sliding Puzzle)** web application. More than just a game, this project showcases a complete community-driven experience.
