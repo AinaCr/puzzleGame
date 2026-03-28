@@ -1,4 +1,4 @@
-import con from '../config/db.js';
+import pool from '../config/db.js';
 
 
 
@@ -13,10 +13,11 @@ export const creatUser=(req,res)=>{
     }
 
     const sql= "INSERT INTO Users(pseudo,email) VALUES(?, ?)"
-    con.query(sql,[name,email],(err,result)=>{
+    pool.query(sql,[name,email],(err,result)=>{
         if(err){
             return res.status(500).json({message:err.message})
         }
+        console.log("ici")
         res.status(201).json({message:"utilisateur ajouter",id:result.insertId})
     })
 }
@@ -30,7 +31,7 @@ export const updateUser=(req,res)=>{
     }
 
     const sql="UPDATE Users SET pseudo = ? WHERE pseudo = ?"
-    con.query(sql,[newName,oldName],(err,result)=>{
+    pool.query(sql,[newName,oldName],(err,result)=>{
         if(err){
             return res.status(500).json({message:err.message})
         }
@@ -45,7 +46,7 @@ export const removePub=(req,res)=>{
         
     const sql="DELETE FROM Post WHERE postID = ?"
 
-    con.query(sql,[post],(err)=>{
+    pool.query(sql,[post],(err)=>{
         if(err) return res.status(500).json({message:err.message}) 
         
         console.log("supprimer")
@@ -67,7 +68,7 @@ export const searchMail=(req,res)=>{
 
     const sql = "SELECT * FROM Users WHERE email = ?"
 
-    con.query(sql,[`${email}`],(err,result)=>{
+    pool.query(sql,[`${email}`],(err,result)=>{
         if(err){
             console.log('on est la')
             return res.status(500).json({message:err.message})   
@@ -88,7 +89,7 @@ export const getID=(req,res)=>{
     console.log("requete get recus:",name)
     const sql = "SELECT userID,admins FROM Users WHERE pseudo = ?"
 
-    con.query(sql,[`${name}`],(err,result)=>{
+    pool.query(sql,[`${name}`],(err,result)=>{
         if(err)return res.status(500).json({message:"erreur ici sur sql"})
         
         if(result.length===0)return res.status(404).json({message:"utilisateur introuvable"})
@@ -105,14 +106,14 @@ export const getID=(req,res)=>{
 
     const sql="UPDATE Post SET reactCount = reactCount + 1 WHERE PostID = ?"
 
-    con.query(sql,[post],(err)=>{
+    pool.query(sql,[post],(err)=>{
         if(err){
         res.status(500).json({message:err.message})
         }
 
         const sqlReact ="UPDATE Reaction SET react = true WHERE postID = ? AND userID = ?"
 
-        con.query(sqlReact,[post,users],(err)=>{
+        pool.query(sqlReact,[post,users],(err)=>{
             if(err)return res.status(500).json({message:err.message})
         })
 
@@ -126,14 +127,14 @@ export const reduceReact=(req,res)=>{
 
     const sql="UPDATE Post SET reactCount = reactCount - 1 WHERE PostID = ?"
 
-    con.query(sql,[post],(err)=>{
+    pool.query(sql,[post],(err)=>{
         if(err){
             return res.status(500).json({message:err.message})
         }
 
         const sqlReact ="UPDATE Reaction SET react = false WHERE postID = ? AND userID = ?"
         
-        con.query(sqlReact,[post,users],(err)=>{
+        pool.query(sqlReact,[post,users],(err)=>{
             if(err)return res.status(500).json({message:err.message})
         })
         res.status(201).json({message:"reaction mis a jour"})
@@ -147,7 +148,7 @@ export const getReact=(req,res)=>{
 
     const sql = "SELECT reactCount FROM Post WHERE postID =?"
 
-    con.query(sql,[post],(err,result)=>{
+    pool.query(sql,[post],(err,result)=>{
         if(err){
             return res.status(500).json({message:err.message})
         }
@@ -168,7 +169,7 @@ export const getLike=(req,res)=>{
 
     const sql = "SELECT react FROM Reaction WHERE postID =? AND userID =?"
 
-    con.query(sql,[post,users],(err,result)=>{
+    pool.query(sql,[post,users],(err,result)=>{
         if(err){
             return res.status(500).json({message:err.message})
         }
@@ -190,7 +191,7 @@ export const createReact=(req,res)=>{
 
     const sql=`INSERT INTO Reaction(userID,postID) VALUE (?, ?)`
 
-    con.query(sql,[idUser,post],(err)=>{
+    pool.query(sql,[idUser,post],(err)=>{
         if(err) {
             return res.status(500).json({message:err.message})
         }
@@ -207,7 +208,7 @@ export const sendReact=(req,res)=>{
 
     const sql=`INSERT INTO Reaction(userID,postID) SELECT userID,postID FROM Post WHERE userID = ${idUser} ORDER BY postID DESC LIMIT 1`
 
-    con.query(sql,[idUser],(err,result)=>{
+    pool.query(sql,[idUser],(err,result)=>{
         if(err) {
             return res.status(500).json({message:err.message})
         }
@@ -222,7 +223,7 @@ export const clash=(req,res)=>{
 
     const sql="INSERT INTO Partie(userID, score,difficulte) VALUES(?, ?, ?)"
 
-    con.query(sql,[id,score,chalenge],(err,result)=>{
+    pool.query(sql,[id,score,chalenge],(err,result)=>{
         if(err)return  res.status(500).json({message:"erreur du requete sql"})
 
         res.status(200).json({message:"operation avec succer"})
@@ -233,7 +234,7 @@ export const clash=(req,res)=>{
 export const easyClash=(req,res)=>{
     const sql="SELECT u.pseudo,p.gameID, p.score, p.difficulte FROM Partie p JOIN Users u ON p.userID= u.userID WHERE p.difficulte='easy' AND  p.gameID=(SELECT min(gameID) FROM Partie WHERE userID = p.userID AND difficulte = 'easy'AND score=(SELECT MIN(score) FROM Partie WHERE userID = p.userID AND difficulte = 'easy'))"
     
-    con.query(sql,(err,result)=>{
+    pool.query(sql,(err,result)=>{
         if(err)return  res.status(500).json({message:"erreur de recupration des donnesur sql",err})
 
         if(result.length===0)return res.status(404).json({message:"classement introuvable"})
@@ -247,7 +248,7 @@ export const easyClash=(req,res)=>{
 export const normalClash=(req,res)=>{
     const sql="SELECT u.pseudo,p.gameID, p.score, p.difficulte FROM Partie p JOIN Users u ON p.userID= u.userID WHERE p.difficulte='normal' AND  p.gameID=(SELECT min(gameID) FROM Partie WHERE userID = p.userID AND difficulte = 'normal'AND score=(SELECT MIN(score) FROM Partie WHERE userID = p.userID AND difficulte = 'normal'))"
     
-    con.query(sql,(err,result)=>{
+    pool.query(sql,(err,result)=>{
         if(err)return  res.status(500).json({message:"erreur de recupration des donnesur sql",err})
 
         if(result.length===0)return res.status(404).json({message:"classement introuvable"})
@@ -261,7 +262,7 @@ export const normalClash=(req,res)=>{
 export const hardClash=(req,res)=>{
     const sql="SELECT u.pseudo,p.gameID, p.score, p.difficulte FROM Partie p JOIN Users u ON p.userID= u.userID WHERE p.difficulte='hard' AND  p.gameID=(SELECT min(gameID) FROM Partie WHERE userID = p.userID AND difficulte = 'hard'AND score=(SELECT MIN(score) FROM Partie WHERE userID = p.userID AND difficulte = 'hard'))"
     
-    con.query(sql,(err,result)=>{
+    pool.query(sql,(err,result)=>{
         if(err)return  res.status(500).json({message:"erreur de recupration des donnesur sql",err})
 
         if(result.length===0)return res.status(404).json({message:"classement introuvable"})
@@ -274,7 +275,7 @@ export const hardClash=(req,res)=>{
 export const post=(req,res)=>{
     const sql= `SELECT Users.pseudo, Post.image, Post.postID,Post.userID FROM Users INNER JOIN Post ON Users.userID = Post.userID ORDER BY RAND()`
 
-      con.query(sql,(err,result)=>{
+      pool.query(sql,(err,result)=>{
         if(err)return res.status(500).json({message:"erreur ici sur sql"})
 
         if(result.length===0)return res.status(404).json({message:"utilisateur introuvable"})
@@ -295,7 +296,7 @@ export const uploads=(req,res)=>{
 
     const sql="INSERT INTO Post(userID,image) VALUES(?,?)"
 
-    con.query(sql,[id,fileName],(err,result)=>{
+    pool.query(sql,[id,fileName],(err,result)=>{
       if(err){
         console.log("erreur dans l'injection des donner")
         return res.status(500).json({message:`erreur:${err.message}`})

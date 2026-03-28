@@ -24,7 +24,7 @@ function App() {
     // Récupère l’ID utilisateur depuis le backend par pseudo
     const getId = async () => {
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/getId?name=${userName}`)
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/user/getId?name=${userName}`)
             const data = await response.json()
 
             if (response.status === 200) {
@@ -45,6 +45,7 @@ function App() {
 
     // Gestion inscription ou connexion selon create
     const userData = async (e) => {
+        console.log("inscription")
         e.preventDefault()
 
         if (create) {
@@ -61,8 +62,9 @@ function App() {
                         const data = await response.json()
 
                         if (response.status === 201) {
-                            navigate('Accueille') // Redirection vers la page principale
                             console.log(data)
+                            navigate('Accueille') // Redirection vers la page principale
+                            
                             getId() // Récupère l’ID de l’utilisateur
                         } else {
                             // Gestion erreurs spécifiques MySQL / backend

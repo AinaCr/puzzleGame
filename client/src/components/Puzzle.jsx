@@ -916,7 +916,7 @@ useEffect(() => {
 useEffect(() => {
   if (endRow.length > 0 && endColumn.length > 0) {
     const end = verification();  // Vérifie si toutes les pièces sont à leur place
-    if (end && !view) {
+    if (end) {
       console.log("Puzzle terminé !");
       sendClashData();           // Envoie le score et la difficulté
       setWin(true)
